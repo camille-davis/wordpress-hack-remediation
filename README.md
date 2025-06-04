@@ -4,10 +4,11 @@
 
 Identify how and when the site was hacked:
 * Check if any plugins need updating and if any vulnerabilities have been reported.
-* Check email logs for suspicious emails.
 * Check for modified core files and look up suspicious filenames or code.
+* Check email logs for suspicious emails.
 * Run a database scan.
 * Look at Wordfence logs.
+* Check if the site is on Google's blocklist.
 
 ## On existing website
 
