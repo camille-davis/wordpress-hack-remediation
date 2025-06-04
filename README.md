@@ -3,7 +3,7 @@
 ## Collect data
 
 Identify how and when the site was hacked:
-* Check if any plugins need updating and if any vulnerabilities have been reported.
+* Check if any third party plugins and themes need updating, and if any vulnerabilities have been reported.<br>[Search plugin vulnerabilities on wordfence.com](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins)
 * Check for modified core files and look up suspicious filenames or code.
 * Check email logs for suspicious emails.
 * Run a database scan.
