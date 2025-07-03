@@ -4,10 +4,9 @@
 
 Identify how and when the site was hacked:
 * Check if any third party plugins and themes need updating, and if any vulnerabilities have been reported.<br>[Search plugin vulnerabilities on wordfence.com](https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins)
-* Check for modified core files and look up suspicious filenames or code.
-* Check email logs for suspicious emails.
-* Run a database scan.
-* Look at Wordfence logs.
+* Check for modified core files and look up suspicious filenames or code. (You can use [Sucuri](https://wordpress.org/plugins/sucuri-scanner/) to find new or modified files in core. [Wordfence](https://wordpress.org/plugins/wordfence/) was not as good for this, it did not find a test php file I placed in core.)
+* Run a database scan. ([GOTMLS (https://wordpress.org/plugins/gotmls/)] has a "database injections" option.)
+* Look at logs (Check email logs for suspicious emails, look at Wordfence logs if it hasn't been removed...)
 * Check if the site is on Google's blocklist.
 
 ## On existing website
@@ -57,13 +56,18 @@ Reinstall after comparing to reference.
 
 ### Database
 
-After scanning original database, migrate data to new install.
+1. Identify the tables you want to migrate, and scan them for malware patterns.
+2. Remove any suspicious or spam data.
+3. Migrate tables to new install.
+4. Identify how suspicious data ended up there and take steps to prevent it happening in the future.
 
 ## Post remediation
 
-* Set up regular backups.
-* Reinstall Wordfence and set up safety procedures, especially:
-  * Rate limit or block 404s
-  * Rate limit login attempts
-  * Send email alerts if Wordfence is disabled or scan identifies malware
-* Connect Wordfence logs to external storage so you can access them even if Wordfence is deleted.
+Set up regular backups with hosting service.
+
+Set plugins to auto-update if possible.
+
+Configure firewall, core file scan and database scan. There are a bunch of plugins that do this but none of them do all three for free. Here's the ones I use:
+* Firewall: [Wordfence](https://wordpress.org/plugins/wordfence/) -- Limit login attemps and 404s (often a sign of bots scanning the website for vulnerabilities.)
+* Core file scan: [Sucuri](https://wordpress.org/plugins/sucuri-scanner/)
+* Database scan: [GOTMLS](https://wordpress.org/plugins/gotmls/)
